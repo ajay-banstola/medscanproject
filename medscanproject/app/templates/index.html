@@ -1,0 +1,270 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+
+
+<form action="/user/charge" method="post">
+    <article>
+        <label>
+        </label>
+    </article>
+
+
+</form>
+
+{% endif %}
+<!--added later -->
+<section class="about-us">
+
+    <div class="container">
+        <div class="row padding-content">
+            <div class="col-md-4 no-padding">
+                <img class="ui medium image error-image img-fluid" src="{{ url_for('static', filename='img/x-ray.jpg') }}">
+            </div>
+            
+            
+            <div class="col-md-8 abt-right">
+                <h1 class="text-center">About MedScan</h1>
+                <p>Medscan is a web based pneumonia detection app. A total of 5000 images were trained of varified pnuemonia images.
+                It uses convolutional neural network for pattern recognition. </p>
+<h5>Contact us: 9806500086</h5>
+            </div>
+        </div>
+        </div>
+        <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-12">
+					{% if current_user.is_authenticated %}
+					<div class="column" style="background-color:#2aa9c982; color:#332929">
+						<h2 class="mt-4">One time Policy</h2>
+						<p class="mt-4">Rs.100 per session diagnosis</p>
+						<p>Email support</p>
+						
+						<button type="button" class="btn btn-secondary pl-4 pt-3 pb-3 pr-4" style="font-size:15px; background:#45a2ba;" data-toggle="modal" data-target="#exampleModal">
+							Pay Here
+						</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-content" style="width:30%;">
+
+								<div class="modal-body">
+									<div class="container">
+										<div class="row">
+											<div class="col-xs-12 col-12">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h3 class="panel-title">
+															Payment Details
+														</h3>
+														<div class="checkbox pull-right">
+															
+														</div>
+													</div>
+													<div class="panel-body">
+														<form role="form" name="form1">
+															<div class="form-group">
+																<label for="cardNumber">
+																	CARD NUMBER</label>
+																<div class="input-group">
+																	<input type="text" name = "cardno" class="form-control"
+																		id="cardNumber" placeholder="Valid Card Number"
+																		required autofocus />
+																	<span class="input-group-addon"><span
+																			class="glyphicon glyphicon-lock"></span></span>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-7 col-lg-6 col-md-7">
+																	<div class="form-group">
+																		<label for="expityMonth">
+																			EXPIRY DATE</label>
+																		<div class="col-xs-6 col-lg-6 pl-ziro">
+																			<input type="text" name = "month" class="form-control"
+																				id="expityMonth" placeholder="MM"
+																				required />
+																		</div>
+																		<div class="col-xs-6 col-lg-6 pl-ziro">
+																			<input type="text" name = "year" class="form-control"
+																				id="expityYear" placeholder="YY"
+																				required />
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-5 col-lg-6 col-md-5 pull-right">
+																	<div class="form-group">
+																		<label for="cvCode">
+																			CV CODE</label>
+																		<input type="password" name = "cv" class="form-control"
+																			id="cvCode" placeholder="CV" required />
+																	</div>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+												<div class="d-flex">
+													<ul class="nav nav-pills nav-stacked">
+														<li class="active pl-4   pr-4"><a href="#"><span>Rs 100</span>
+																Final
+																Payment</a>
+														</li>
+													</ul>
+													<button type="button" class="btn btn-secondary"
+														style="padding-right:60px;padding-left:60px;"
+														onclick="location.href='index';"
+														data-dismiss="modal">Close</button>
+
+												</div>
+												<br />
+												<form action="/user/charge" method="post" onSubmit = "return required();">
+													<button type="submit" class="btn btn-success btn-lg btn-block"
+														role="button">Pay</button>
+												</form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<br>
+							</div>
+
+
+
+						</div>
+
+
+
+					</div>
+					{% endif %}
+
+					{% if current_user.is_authenticated %}
+					<div class="column" style="background-color:#009bc1;">
+						<h2 class="mt-4"> Premium</h2>
+						<p class="mt-4">Rs. 10000 /month, up to 300 diagnosis</p>
+						<p>24/7 chat support</p>
+					
+
+						<button type="button" class="btn btn-secondary pl-4 pr-4 pb-3 pt-3" style="font-size:15px;background:#185b6c;" data-toggle="modal" data-target="#exampleModal">
+							Pay Here
+						</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-content" style="width:40%;">
+
+								<div class="modal-body">
+									<div class="container">
+										<div class="row">
+											<div class="col-xs-12 col-12">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h3 class="panel-title">
+															Payment Details
+														</h3>
+														<div class="checkbox pull-right">
+															
+														</div>
+													</div>
+													<div class="panel-body">
+														<form role="form" name = "form1">
+															<div class="form-group">
+																<label for="cardNumber">
+																	CARD NUMBER</label>
+																<div class="input-group">
+																	<input type="text" name = "cardno" class="form-control"
+																		id="cardNumber" placeholder="Valid Card Number"
+																		required autofocus />
+																	<span class="input-group-addon"><span
+																			class="glyphicon glyphicon-lock"></span></span>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-9 col-md-9">
+																	<div class="form-group">
+																		<label for="expityMonth">
+																			EXPIRY DATE</label>
+																		<div class="col-xs-6 col-lg-4 pl-ziro">
+																			<input type="text" name = "month" class="form-control"
+																				id="expityMonth" placeholder="MM"
+																				required />
+																		</div>
+																		<div class="col-xs-6 col-lg-4 pl-ziro">
+																			<input type="text" name = "year" class="form-control"
+																				id="expityYear" placeholder="YY"
+																				required />
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-3 col-md-3 pull-right">
+																	<div class="form-group">
+																		<label for="cvCode">
+																			CV CODE</label>
+																		<input type="password" name = "cv" class="form-control"
+																			id="cvCode" placeholder="CV" required />
+																	</div>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+												<div class="d-flex">
+													<ul class="nav nav-pills nav-stacked">
+														<li class="active pl-4   pr-4"><a href="#"><span>Rs 10000</span>
+																Final
+																Payment</a>
+														</li>
+													</ul>
+
+													<button type="button" class="btn btn-secondary"
+														style="padding-right:60px;padding-left:60px;"
+														onclick="location.href='index';"
+														data-dismiss="modal">Close</button>
+
+												</div>
+												<br />
+												<form action="/user/charge" method="post">
+													<button type="submit" class="btn btn-secondary btn-lg btn-block"
+														role="button">Pay</button>
+												</form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<br>
+							</div>
+
+
+
+						</div>
+
+						</form>
+					</div>
+					{% endif %}
+					{% if current_user.is_authenticated %}
+					<div class="column" style="background-color:#2aa9c982; color:#332929;">
+						<h2 class="mt-5 ">Enterprise</h2>
+						<p class="mt-4">Unlimited Diagnosis</p>
+						<p>24/7 Phone Support</p>
+						<p>Contact us for a price quote(ajay.banstola@gmail.com)</p>
+						</form>
+					</div>
+					{% endif%}
+				</div>
+
+        </div>
+    </div>
+</section>
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/script.min.js"></script>
+
+{% endblock %}

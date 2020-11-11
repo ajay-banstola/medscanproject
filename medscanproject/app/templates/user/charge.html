@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+ <center> <h2><font color='white'>Thanks, you paid <strong>$10.00</strong>!</font></h2>
+  
+ 
+ 
+       <form action = "http://localhost:5000/uploaded" method = "POST" enctype = "multipart/form-data">
+          <h2 style="margin-bottom:40px;">Upload your image below:</h2>
+           <div style="margin-left:490px;"> 
+            <div class="d-flex"><input type="file" name="file" multiple class="button">
+		<input type = "submit" class="button ml-2"/></div></div>
+      </form>
+
+{% endblock %}
